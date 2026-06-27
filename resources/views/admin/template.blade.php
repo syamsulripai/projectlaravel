@@ -8,8 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin Web Profile')</title>
 
-    <!-- CSS Bootstrap CDN -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css">
     <script>
         const API_TOKEN = '{{ session('api_token') }}';
@@ -179,15 +178,13 @@
 
     </footer>
 
+    
 
+    <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
-    <!-- JS Bootstrap CDN -->
-<script src="https://jsdelivr.net"></script>
-
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-<script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
 
 @yield('scripts')
 
