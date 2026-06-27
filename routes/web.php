@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('/projects', [ProjectsController::class,'index'])->name('projects');
@@ -52,4 +53,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'index'])
         ->name('admin.users');
 
+});
+
+
+Route::get('/clear-cache', function() {
+    Artisan::call("config:clear");
+    Artisan::call("cache:clear");
+    Artisan::call("route:clear");
 });
